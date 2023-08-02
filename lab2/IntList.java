@@ -36,15 +36,15 @@ public class IntList {
         if (L == null) {
             return null;
         }
-        IntList res = new IntList(L.head * L.head, null);
-        IntList ptr = res;
+        IntList result = new IntList(L.head * L.head, null);
+        IntList ptr = result;
         L = L.tail;
         while (L != null) {
             ptr.tail = new IntList(L.head * L.head, null);
             L = L.tail;
             ptr = ptr.tail;
         }
-        return res;
+        return result;
     }
 
     /** Returns a list equal to L with all elements squared. Non-destructive. */
@@ -67,6 +67,9 @@ public class IntList {
         //TODO:  Print out L1 using IntelliJ's 'sout' command.
         var out = sum(L1);
         System.out.println(out);
+
+        IntList intList = squareListIterative(L1);
+        System.out.println(intList);
     }
 
     /** Returns the sum of the integers contained in L.*/

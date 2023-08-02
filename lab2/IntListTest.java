@@ -1,6 +1,8 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import java.util.List;
+
 public class IntListTest {
 
     /** Sample test that verifies correctness of the IntList.list static
@@ -27,7 +29,13 @@ public class IntListTest {
     public void testdSquareList() {
         IntList L = IntList.list(1, 2, 3);
         IntList.dSquareList(L);
+        // 用assertEquals方法，如果比较的值大小一样，也会返回正确
         assertEquals(IntList.list(1, 4, 9), L);
+
+        // 正确的比较是否被修改的方法
+        IntList V = IntList.list(1, 2, 3, 4);
+        IntList.dSquareList(V);
+        assertEquals(IntList.list(1, 2, 3, 4), L);
     }
 
     /*  Do not use the "new" keyword in your tests. You can create
@@ -42,10 +50,12 @@ public class IntListTest {
     @Test
     public void testSquareListRecursive() {
         // TODO: test for correctness
+        IntList list = IntList.list(1, 2, 3, 4);
+        IntList intList = IntList.squareListRecursive(list);
+        assertEquals(IntList.list(1, 4, 9, 16), intList);
+
         // TODO: test for non-destructiveness
-        
-        // TODO: remove the placeholder line below
-        assertTrue(false);
+        assertEquals(IntList.list(1, 2, 3, 4), list);
     }
 
     /* Run the unit tests in this file. */
